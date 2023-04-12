@@ -3,7 +3,7 @@ Module      : Test.Covtest
 
 A testsuite driver with support for per-test coverage information.
 -}
-module Test.Covtest ( writeInSeperateFile, Test ) where
+module Test.Covtest ( writeInSeperateFile, Test (..), runTests ) where
 
 import Trace.Hpc.Tix (writeTix)
 import Trace.Hpc.Reflect (clearTix, examineTix)
