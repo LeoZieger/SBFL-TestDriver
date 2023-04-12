@@ -9,7 +9,7 @@ import Trace.Hpc.Tix (writeTix)
 import Trace.Hpc.Reflect (clearTix, examineTix)
 
 tixFilePrefix :: String
-tixFilePrefix = "./test/Test"
+tixFilePrefix = "./test/"
 
 -- | Test with name and result
 data Test = Test String -- ^ Name of Test
