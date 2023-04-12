@@ -13,14 +13,13 @@ tixFilePrefix = "./test/Test"
 
 -- | Test with name and result
 data Test = Test String -- ^ Name of Test
-                 (IO Bool) -- ^ Result of Test
+                 Bool -- ^ Result of Test
 
 
 -- | Run multiple tests
 runTests :: [Test] -- ^ List of Tests
          -> IO ()
-runTests ((Test name result):ts) = do p <- result
-                                      writeInSeperateFile name p
+runTests ((Test name result):ts) = do writeInSeperateFile name result
                                       runTests ts
 
 
