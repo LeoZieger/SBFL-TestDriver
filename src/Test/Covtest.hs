@@ -19,6 +19,7 @@ data Test = Test String -- ^ Name of Test
 -- | Run multiple tests
 runTests :: [Test] -- ^ List of Tests
          -> IO ()
+runTests [] = pure ()
 runTests ((Test name result):ts) = do writeInSeperateFile name result
                                       runTests ts
 
