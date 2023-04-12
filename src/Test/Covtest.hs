@@ -30,7 +30,7 @@ writeInSeperateFile :: String -- ^ The name of the test.
                     -> IO ()
 writeInSeperateFile n p = do currentTix <- examineTix
                              writeTix (tixFilePrefix ++
-                                       show n ++
+                                       n ++
                                        (if p then "_PASS" else "_FAIL") ++
                                        ".tix") currentTix
                              clearTix
