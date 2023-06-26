@@ -27,7 +27,7 @@ runTests ts = do print ("Running " ++ show (length ts) ++ " Tests")
         go [] = pure ()
         go ((Test name result):ts') = do print (name ++ " | " ++ show result)
                                          writeInSeperateFile name result
-                                         runTests ts'
+                                         go ts'
 
 
 -- | Run a test.
