@@ -20,7 +20,8 @@ data Test = Test String -- ^ Name of Test
 runTests :: [Test] -- ^ List of Tests
          -> IO ()
 runTests [] = pure ()
-runTests ((Test name result):ts) = do writeInSeperateFile name result
+runTests ((Test name result):ts) = do print (name ++ " | " ++ show result)
+                                      writeInSeperateFile name result
                                       runTests ts
 
 
