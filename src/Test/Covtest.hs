@@ -19,10 +19,15 @@ data Test = Test String -- ^ Name of Test
 -- | Run multiple tests
 runTests :: [Test] -- ^ List of Tests
          -> IO ()
-runTests [] = pure ()
-runTests ((Test name result):ts) = do print (name ++ " | " ++ show result)
-                                      writeInSeperateFile name result
-                                      runTests ts
+runTests ts = do print ("Running " ++ show (length ts) ++ " Tests")
+                 go ts
+                 print "Done"
+    where
+        go :: [Test] -> IO ()
+        go [] = pure ()
+        go ((Test name result):ts') = do print (name ++ " | " ++ show result)
+                                         writeInSeperateFile name result
+                                         runTests ts'
 
 
 -- | Run a test.
